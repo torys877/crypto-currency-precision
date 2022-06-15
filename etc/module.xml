@@ -9,7 +9,6 @@
         xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/Module/etc/module.xsd">
     <module name="Crypto_CurrencyPrecision" setup_version="1.0.0">
         <sequence>
-            <module name="Crypto_Base"/>
             <module name="Magento_Directory"/>
             <module name="Magento_CurrencySymbol"/>
         </sequence>

@@ -1,6 +1,6 @@
 {
-    "name": "crypto/currency-precision",
-    "version": "1.0.0",
+    "name": "cryptom2/currency-precision",
+    "version": "v1.0.0",
     "description": "Auxiliary module to handle currency precision for crypto currencies",
     "type": "magento2-module",
     "authors": [
@@ -10,16 +10,7 @@
             "role": "Developer"
         }
     ],
-    "require": {
-        "crypto/base": "*"
-    },
     "license": "MIT",
-    "repositories": {
-        "crypto_base": {
-            "type": "git",
-            "url": "git@github.com:torys877/crypto-base.git"
-        }
-    },
     "autoload": {
         "files": [
             "registration.php"

@@ -28,10 +28,10 @@ class PriceCurrencyInterfacePlugin extends BasePlugin
     public function aroundRound(
         PriceCurrencyInterface $subject,
         callable $proceed,
-        float $price
+        ?float $price
     ): float {
         if (!$this->isCurrencyPrecision() || !$price) {
-            return $proceed($price);
+            return $proceed((float) $price);
         }
 
         return round($price, 5);
@@ -50,14 +50,14 @@ class PriceCurrencyInterfacePlugin extends BasePlugin
     public function aroundFormat(
         PriceCurrencyInterface $subject,
         callable $proceed,
-        float $amount,
+        ?float $amount,
         bool $includeContainer = true,
         int $precision = PriceCurrencyInterface::DEFAULT_PRECISION,
         $scope = null,
         $currency = null
     ): string {
         if (!$this->isCurrencyPrecision()) {
-            return $proceed($amount,
+            return $proceed((float) $amount,
                 $includeContainer,
                 $precision,
                 $scope,
