@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Ihor Oleksiienko (https://github.com/torys877)
+ * See LICENSE for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="Magento\CurrencySymbol\Model\System\Currencysymbol"
+                type="Crypto\CurrencyPrecision\Model\System\Currencysymbol"/>
+    <preference for="Magento\Directory\Block\Currency"
+                type="Crypto\CurrencyPrecision\Block\Currency"/>
+
+<!-- PLUGINS FOR PRECISION -->
+
+    <type name="Magento\Framework\CurrencyInterface">
+        <plugin name="Crypto_CurrencyPrecision::currency_interface_precision"
+                type="Crypto\CurrencyPrecision\Plugin\FrameworkCurrencyInterfacePlugin"
+                sortOrder="100" />
+    </type>
+
+    <type name="Magento\Framework\Locale\FormatInterface">
+        <plugin name="Crypto_CurrencyPrecision::format_plugin"
+                type="Crypto\CurrencyPrecision\Plugin\FormatPlugin"
+                sortOrder="100" />
+    </type>
+
+    <type name="Magento\Framework\Pricing\Render\AmountRenderInterface">
+        <plugin name="Crypto_CurrencyPrecision::format_amount_plugin"
+                type="Crypto\CurrencyPrecision\Plugin\AmountPlugin" sortOrder="100" />
+    </type>
+
+<!--    Magento\Directory\Model\PriceCurrency-->
+
+    <type name="Magento\Framework\Pricing\PriceCurrencyInterface">
+        <plugin name="Crypto_CurrencyPrecision::format_price_currency_plugin"
+                type="Crypto\CurrencyPrecision\Plugin\PriceCurrencyInterfacePlugin" sortOrder="100" />
+    </type>
+
+    <type name="Magento\Directory\Model\Currency">
+        <plugin name="Crypto_CurrencyPrecision::currency_format_precision"
+                type="Crypto\CurrencyPrecision\Plugin\Directory\Currency"
+                sortOrder="100" />
+    </type>
+</config>
