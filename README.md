@@ -23,7 +23,7 @@ Or add repositories in console:
 
 Install module:
 
-`composer require crypto/currency-precision:v1.0.0`
+`composer require cryptom2/currency-precision:v1.0.0`
 
 And run
 
